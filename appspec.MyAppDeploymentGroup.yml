@@ -5,7 +5,6 @@ files:
     destination: /home/ubuntu/My-Node-JS-Web-Application/web-app
 hooks:
   ApplicationStart:
-    - location: scripts/start_server.sh
+    - runas: ubuntu
       timeout: 300
-      runas: ubuntu
       script: "cd /home/ubuntu/My-Node-JS-Web-Application/web-app && npm start"
