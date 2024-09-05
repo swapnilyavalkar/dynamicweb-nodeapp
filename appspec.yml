@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/My-Node-JS-Web-Application
+    destination: /home/ubuntu/My-Node-JS-Web-Application/web-app
 hooks:
   AfterInstall:
     - location: scripts/install_dependencies.sh
