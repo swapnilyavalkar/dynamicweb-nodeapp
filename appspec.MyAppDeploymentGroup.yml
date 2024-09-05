@@ -5,9 +5,9 @@ files:
     destination: /home/ubuntu/My-Node-JS-Web-Application/web-app
 hooks:
   AfterInstall:
-    - location: scripts/install_dependencies.sh
+    - location: My-Node-JS-Web-Application/web-app/scripts/install_dependencies.sh
       timeout: 300
       runas: ubuntu
-    - location: scripts/start_server.sh
+    - location: My-Node-JS-Web-Application/web-app/scripts/start_server.sh
       timeout: 300
       runas: ubuntu
