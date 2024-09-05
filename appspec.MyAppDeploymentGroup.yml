@@ -4,12 +4,6 @@ files:
   - source: /
     destination: /home/ubuntu/My-Node-JS-Web-Application/web-app
 hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies.sh
-      timeout: 300
-      runas: root
-      # Explicitly use bash to execute the script
-      script: "bash scripts/install_dependencies.sh"
   AfterInstall:
     - location: scripts/start_server.sh
       timeout: 300
