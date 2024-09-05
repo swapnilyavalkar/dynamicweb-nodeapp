@@ -4,10 +4,8 @@ files:
   - source: /
     destination: /home/ubuntu/My-Node-JS-Web-Application/web-app
 hooks:
-  BeforeInstall:
-    # No commands for BeforeInstall
-  AfterInstall:
-    # No commands for AfterInstall
+  BeforeInstall: []
+  AfterInstall: []
   ApplicationStart:
     - runas: ubuntu
       timeout: 300
