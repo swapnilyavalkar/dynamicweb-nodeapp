@@ -38,7 +38,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Fancy Web Application</title>
     <link rel="stylesheet" href="style.css">
-    <style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Web Application,<br> Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
+    </header>
+
+    <!-- Welcoming GIF -->
+    <div id="gif-container">
+        <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="Hi GIF">
+    </div>
+
+    <!-- Static Content Section -->
+    <section id="content">
+        <h2>Static Content</h2>
+        <p>This is a simple static content page, designed to give a warm and friendly vibe!</p>
+    </section>
+
+    <!-- Dynamic Content Section -->
+    <section id="dynamic-content">
+        <h2>Dynamic Content (From API)</h2>
+        <div id="api-data">Loading dynamic content...</div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
+
+#### **CSS (`/public/style.css`)**
+
+```css
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -98,58 +130,6 @@
             font-size: 1.2em;
             text-align: center;
         }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Welcome to My Web Application,<br> Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
-    </header>
-
-    <!-- Welcoming GIF -->
-    <div id="gif-container">
-        <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="Hi GIF">
-    </div>
-
-    <!-- Static Content Section -->
-    <section id="content">
-        <h2>Static Content</h2>
-        <p>This is a simple static content page, designed to give a warm and friendly vibe!</p>
-    </section>
-
-    <!-- Dynamic Content Section -->
-    <section id="dynamic-content">
-        <h2>Dynamic Content (From API)</h2>
-        <div id="api-data">Loading dynamic content...</div>
-    </section>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
-```
-
-#### **CSS (`/public/style.css`)**
-
-```css
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-}
-section {
-    padding: 2rem;
-}
-h1, h2 {
-    color: #333;
-}
 ```
 
 #### **JavaScript (`/public/script.js`)**
