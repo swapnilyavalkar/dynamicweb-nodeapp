@@ -218,6 +218,7 @@ app.listen(PORT, () => {
    - In the project directory, run:
      ```bash
      npm install
+     npm install express
      ```
 
 #### **Step 3: Start the Application**
