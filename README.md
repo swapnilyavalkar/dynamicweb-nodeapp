@@ -36,22 +36,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Application</title>
+    <title>My Fancy Web Application</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+        header a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        #gif-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        #gif-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        #content, #dynamic-content {
+            margin: 40px auto;
+            width: 80%;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        #api-data {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            min-height: 50px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>Welcome to My Web Application, Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
+        <h1>Welcome to My Web Application,<br> Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
     </header>
+
+    <!-- Welcoming GIF -->
+    <div id="gif-container">
+        <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="Hi GIF">
+    </div>
+
+    <!-- Static Content Section -->
     <section id="content">
         <h2>Static Content</h2>
-        <p>This is a simple static content page.</p>
+        <p>This is a simple static content page, designed to give a warm and friendly vibe!</p>
     </section>
+
+    <!-- Dynamic Content Section -->
     <section id="dynamic-content">
         <h2>Dynamic Content (From API)</h2>
-        <div id="api-data"></div>
+        <div id="api-data">Loading dynamic content...</div>
     </section>
+
     <script src="script.js"></script>
+
 </body>
 </html>
 ```
