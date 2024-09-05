@@ -4,7 +4,12 @@ files:
   - source: /
     destination: /home/ubuntu/My-Node-JS-Web-Application/web-app
 hooks:
+  BeforeInstall:
+    - location: 
+      timeout: 300
+      runas: ubuntu
   AfterInstall:
-    - timeout: 300
+    - location: 
+      timeout: 300
       runas: ubuntu
       script: "cd /home/ubuntu/My-Node-JS-Web-Application/web-app; npm start"
