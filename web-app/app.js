@@ -3,21 +3,18 @@ const path = require('path');
 const os = require('os');
 const app = express();
 
-// Set the view engine to ejs
-app.set('view engine', 'ejs');
-
-// Serve static content from the 'public' directory
+// Serve static content from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Dynamic content API
-app.get('/api/data', (req, res) => {
-    res.sendFile(path.join(__dirname, 'data', 'data.json'));
+// API route to get the EC2 hostname
+app.get('/api/hostname', (req, res) => {
+    const hostname = os.hostname(); // Get the EC2 instance hostname
+    res.json({ hostname });
 });
 
-// Root route - Render index.ejs with EC2 hostname
-app.get('/', (req, res) => {
-    const hostname = os.hostname(); // Get the EC2 instance hostname
-    res.render('index', { hostname });
+// API route to serve dynamic content from data.json
+app.get('/api/data', (req, res) => {
+    res.sendFile(path.join(__dirname, 'data', 'data.json'));
 });
 
 // Start the server
