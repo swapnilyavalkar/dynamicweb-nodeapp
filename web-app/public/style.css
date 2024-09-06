@@ -1,59 +1,157 @@
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 700;
-        }
-        header a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        header a:hover {
-            text-decoration: underline;
-        }
-        #gif-container {
-            margin: 20px 0;
-            text-align: center;
-        }
-        #gif-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        #content, #dynamic-content {
-            margin: 40px auto;
-            width: 80%;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h2 {
-            color: #4CAF50;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        #api-data {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #e0f7fa;
-            border: 2px solid #00796b;
-            border-radius: 10px;
-            min-height: 50px;
-            font-size: 1.2em;
-            text-align: center;
-        }
+/* Ensure the page takes up the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Header styling */
+header {
+    background-color: #4CAF50;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Align image on the left */
+header img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70px; /* Adjust the size of the image */
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: 1.8em; /* Reduce font size */
+    margin: 0;
+    font-weight: 700;
+}
+
+header a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Hostname on the right */
+header p {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: smaller;
+    color: black;
+}
+
+/* Main container to fill the available height */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Static content and dynamic content sections */
+#content, #dynamic-content {
+    margin: 10px auto;
+    padding: 8px; /* Reduce padding */
+    width: 80%;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* Adjusting heights */
+#content {
+    margin-bottom: 10px;
+    min-height: 12vh; /* Reduce the static content height */
+}
+
+#dynamic-content {
+    min-height: 15vh; /* Reduce the dynamic content section height */
+}
+
+/* Heading adjustments */
+h2 {
+    color: #4CAF50;
+    font-size: 1.5em;
+    margin-top: 5px;
+    margin-bottom: 10px; /* Reduce bottom margin */
+}
+
+p {
+    font-size: 1em;
+}
+
+/* Style for the dynamic content cards */
+#api-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5px;
+    background-color: #f9f9f9;
+    flex-grow: 1;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Reduce card width */
+    margin: 5px;
+    padding: 2px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon styling */
+.icon svg {
+    width: 100px; /* Reduce icon size */
+    height: 80px;
+    fill: #4CAF50;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #4CAF50;
+    font-size: 1.2em;
+}
+
+.card p {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff5722;
+    font-size: 1.1em;
+}
+
+/* Ensure all content fits within the viewport */
+body {
+    height: 100vh;
+}
