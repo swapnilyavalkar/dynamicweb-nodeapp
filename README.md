@@ -1,218 +1,77 @@
-# Web Application Overview
-
-- **Static Content**: 
-  - A simple HTML page styled with CSS and includes some JavaScript.
-- **Dynamic Content**: 
-  - Served using **Node.js** that dynamically fetches data and renders it on the webpage.
-
 ---
 
-### **Web Application Structure**
+# My Node.js Web Application
+
+## Overview
+
+This Node.js web application contains both static and dynamic content, including a sample API serving dynamic data.
+
+## Directory Structure
 
 ```
-/web-app
+/My-Node-JS-Web-Application
 │
-├── /public           # Static files
-│   ├── index.html    # HTML file
-│   ├── style.css     # CSS file
-│   └── script.js     # JavaScript file
+├── /data             
+│   └── data.json     # Dynamic content served via API
 │
-├── /data             # Dynamic content (API)
-│   └── data.json     # Sample data served via API
+├── /public           
+│   ├── index.html    # Main HTML file
+│   ├── style.css     # Stylesheet
+│   ├── script.js     # JavaScript file for dynamic content
+│   ├── hi.webp       # Image used in the header
 │
 ├── app.js            # Main Node.js application file
-├── package.json      # Node.js dependencies
+├── package.json      # Dependencies for Node.js
+└── README.md         # Instructions for deployment
 ```
 
----
+## Prerequisites
 
-### **Code for Static Content**
+- **Node.js** and **npm** installed.
 
-#### **HTML (`/public/index.html`)**
+## Installation Steps
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Fancy Web Application</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/swapnilyavalkar/My-Node-JS-Web-Application.git
+   cd My-Node-JS-Web-Application/web-app
+   ```
 
-    <header>
-        <h1>Welcome to My Web Application,<br> Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
-    </header>
+2. **Install Dependencies**:
+   ```bash
+   sudo apt update
+   ccd ~
+   curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
+   sudo bash /tmp/nodesource_setup.sh
+   sudo apt install nodejs
+   npm install express
+   ```
 
-    <!-- Welcoming GIF -->
-    <div id="gif-container">
-        <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="Hi GIF">
-    </div>
+3. **Run the Application**:
+   ```bash
+   npm start
+   ```
 
-    <!-- Static Content Section -->
-    <section id="content">
-        <h2>Static Content</h2>
-        <p>This is a simple static content page, designed to give a warm and friendly vibe!</p>
-    </section>
+4. **Access the Web Application**:
+   Visit `http://localhost:3000` in your browser.
 
-    <!-- Dynamic Content Section -->
-    <section id="dynamic-content">
-        <h2>Dynamic Content (From API)</h2>
-        <div id="api-data">Loading dynamic content...</div>
-    </section>
+## Code Snippets
 
-    <script src="script.js"></script>
+### `app.js`
 
-</body>
-</html>
-```
-
-#### **CSS (`/public/style.css`)**
-
-```css
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: 700;
-        }
-        header a {
-            color: #FFD700;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        header a:hover {
-            text-decoration: underline;
-        }
-        #gif-container {
-            margin: 20px 0;
-            text-align: center;
-        }
-        #gif-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        #content, #dynamic-content {
-            margin: 40px auto;
-            width: 80%;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        h2 {
-            color: #4CAF50;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        #api-data {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #e0f7fa;
-            border: 2px solid #00796b;
-            border-radius: 10px;
-            min-height: 50px;
-            font-size: 1.2em;
-            text-align: center;
-        }
-```
-
-#### **JavaScript (`/public/script.js`)**
-
-```javascript
-// Fetch dynamic content from the server API and display it
-fetch('/api/data')
-    .then(response => response.json())
-    .then(data => {
-        const dataContainer = document.getElementById('api-data');
-        data.forEach(item => {
-            const div = document.createElement('div');
-            div.innerText = `Item: ${item.name}, Value: ${item.value}`;
-            dataContainer.appendChild(div);
-        });
-    })
-    .catch(err => {
-        console.error('Error fetching dynamic content:', err);
-    });
-```
-
----
-
-### **Code for Dynamic Content**
-
-#### **Sample Data (`/data/data.json`)**
-
-```json
-[
-    { "name": "Item 1", "value": 100 },
-    { "name": "Item 2", "value": 200 },
-    { "name": "Item 3", "value": 300 }
-]
-```
-
----
-
-### **Node.js Server Code**
-
-#### **app.js**
+This is the main server file for the application, which serves static content and handles API routes.
 
 ```javascript
 const express = require('express');
 const path = require('path');
-const os = require('os'); // Import the os module to get the hostname
 const app = express();
 
-// Serve static content from the 'public' directory
+// Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Dynamic content API
+// API route to serve dynamic content
 app.get('/api/data', (req, res) => {
     res.sendFile(path.join(__dirname, 'data', 'data.json'));
-});
-
-// Root route - Inject EC2 hostname into the static HTML
-app.get('/', (req, res) => {
-    const hostname = os.hostname(); // Get the EC2 instance hostname
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>My Web Application</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <header>
-                <h1>Welcome to My Web Application Hosted On EC2 Instance: ${hostname}</h1>
-            </header>
-            <section id="content">
-                <h2>Static Content</h2>
-                <p>This is a simple static content page.</p>
-            </section>
-            <section id="dynamic-content">
-                <h2>Dynamic Content (From API)</h2>
-                <div id="api-data"></div>
-            </section>
-            <script src="script.js"></script>
-        </body>
-        </html>
-    `);
 });
 
 // Start the server
@@ -222,101 +81,66 @@ app.listen(PORT, () => {
 });
 ```
 
-#### **`package.json` (Node.js Dependencies)**
+### `index.html`
 
-```json
-{
-  "name": "web-app",
-  "version": "1.0.0",
-  "description": "A simple web application with static and dynamic content",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1"
-  }
-}
+This is the main HTML file served as the homepage.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="hi.webp" alt="Hi GIF">
+        <h1>Welcome to My Web Application,<br> Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
+    </header>
+    <section id="content">
+        <h2>Static Content</h2>
+        <p>This is a simple static content page, designed to give a warm and friendly vibe!</p>
+    </section>
+    <section id="dynamic-content">
+        <h2>Dynamic Content (From API)</h2>
+        <div id="api-data">Loading dynamic content...</div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
 ```
 
----
+### `script.js`
 
-### **Instructions to Deploy and Run the Application**
+This file fetches dynamic content from the API and displays it on the page.
 
-#### **Step 1: Install Node.js**
+```javascript
+// Fetch dynamic content from the server API and display it
+fetch('/api/data')
+    .then(response => response.json())
+    .then(data => {
+        const dataContainer = document.getElementById('api-data');
+        dataContainer.innerHTML = '';
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            const title = document.createElement('h3');
+            title.innerText = item.title;
+            const description = document.createElement('p');
+            description.innerText = item.description;
+            card.appendChild(title);
+            card.appendChild(description);
+            dataContainer.appendChild(card);
+        });
+    })
+    .catch(err => console.error('Error fetching dynamic content:', err));
+```
 
-1. **Ubuntu/Linux**:
-   ```bash
-   sudo apt update
-   sudo apt install nodejs npm
-   ```
+## API Endpoints
 
-2. **Amazon Linux 2**:
-   ```bash
-   sudo yum update -y
-   sudo amazon-linux-extras install epel
-   sudo yum install nodejs npm -y
-   ```
-
-#### **Step 2: Set Up the Application**
-
-1. **Clone the Repository or Upload the Code**:
-   - Clone this repository or upload the code to your EC2 instance:
-     ```bash
-     git clone https://github.com/your-username/web-app.git
-     cd web-app
-     ```
-
-2. **Install Dependencies**:
-   - In the project directory, run:
-     ```bash
-     npm install
-     npm install express ejs
-     ```
-
-#### **Step 3: Start the Application**
-
-1. **Run the Node.js Application**:
-   - Start the application by running:
-     ```bash
-     npm start
-     ```
-
-2. **Access the Application**:
-   - Open a browser and go to `http://<EC2-Public-IP>:3000`.
-   - You will see the static content along with the dynamic data fetched from the API.
+- **Static Content**: Available at the root URL (`/`).
+- **Dynamic Content**: Available via `/api/data`.
 
 ---
-
-### **Testing the Application**
-
-1. **Test Static Content**:
-   - Open the application in the browser and ensure the static content ("Welcome to My Web Application") is displayed correctly.
-
-2. **Test Dynamic Content**:
-   - Check the "Dynamic Content" section. The data from the API (e.g., `Item: Item 1, Value: 100`) should be displayed.
-   - If dynamic content is not displayed, check the browser console for errors (use **F12** for DevTools).
-
----
-
-### **Why Sections**
-
-1. **Static Content**: 
-   - **Why**: This content is easily served by the server without processing. It is used for assets like HTML, CSS, and JavaScript files.
-
-2. **Dynamic Content**: 
-   - **Why**: This part of the application serves data from an API (using `data.json`) to show how server-side dynamic content can be integrated into a web application.
-
-3. **Node.js Server**: 
-   - **Why**: Node.js is used for serving both static files and dynamic API responses. It's lightweight and ideal for this type of application.
-
-4. **Express.js Framework**:
-   - **Why**: Express is a minimal and flexible Node.js web application framework that provides tools to quickly build web servers.
-
----
-
-### **Notes:**
-
-- Use this web application as a base for all your projects.
-- Modify the dynamic content as needed for different use cases.
-- Scale this application by deploying it across multiple EC2 instances using a load balancer, Auto Scaling, and other AWS services.
