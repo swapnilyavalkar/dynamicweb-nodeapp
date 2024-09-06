@@ -38,7 +38,7 @@ This Node.js web application contains both static and dynamic content, including
 2. **Install Dependencies**:
    ```bash
    sudo apt update
-   ccd ~
+   cd ~
    curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
    sudo bash /tmp/nodesource_setup.sh
    sudo apt install nodejs
