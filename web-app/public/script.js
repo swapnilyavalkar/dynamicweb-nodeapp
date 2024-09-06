@@ -8,7 +8,7 @@ fetch('/api/hostname')
         hostnameElement.style.position = 'absolute'; // Make it position absolute
         hostnameElement.style.right = '80px'; // Align it to the right
         hostnameElement.style.bottom = '0px'; // Align it to the bottom
-        hostnameElement.innerHTML = `Hosted On Server: <strong>${data.hostname}</strong>`;
+        hostnameElement.innerHTML = `Hosted On: <strong>${data.hostname}</strong>`;
         document.querySelector('header').appendChild(hostnameElement); // Append to the header
     })
     .catch(err => {
