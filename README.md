@@ -1,5 +1,3 @@
----
-
 # My Node.js Web Application
 
 ## Overview
