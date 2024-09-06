@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Application</title>
+    <title>My Fancy Web Application</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <h1>Welcome to My Web Application, Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
+        <h1>Welcome to My Web Application,<br> Created by <a href="https://github.com/swapnilyavalkar">Swapnil Yavalkar</a></h1>
+        <p style="font-size: smaller; color: gray;">Hosted On EC2 Instance: <%= hostname %></p>
     </header>
+    
+
+    <!-- Welcoming GIF -->
+    <div id="gif-container">
+        <img src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="Hi GIF">
+    </div>
+
+    <!-- Static Content Section -->
     <section id="content">
         <h2>Static Content</h2>
-        <p>This is a simple static content page.</p>
+        <p>This is a simple static content page, designed to give a warm and friendly vibe!</p>
     </section>
+
+    <!-- Dynamic Content Section -->
     <section id="dynamic-content">
         <h2>Dynamic Content (From API)</h2>
-        <div id="api-data"></div>
+        <div id="api-data">Loading dynamic content...</div>
     </section>
+
     <script src="script.js"></script>
+
 </body>
 </html>
