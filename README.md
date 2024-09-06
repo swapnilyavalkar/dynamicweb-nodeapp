@@ -169,7 +169,7 @@ fetch('/api/data')
 
 ### **Node.js Server Code**
 
-#### **Node.js (`app.js`)**
+#### **app.js**
 
 ```javascript
 const express = require('express');
