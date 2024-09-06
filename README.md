@@ -135,10 +135,4 @@ fetch('/api/data')
     })
     .catch(err => console.error('Error fetching dynamic content:', err));
 ```
-
-## API Endpoints
-
-- **Static Content**: Available at the root URL (`/`).
-- **Dynamic Content**: Available via `/api/data`.
-
 ---
