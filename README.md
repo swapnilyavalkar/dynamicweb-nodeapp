@@ -32,7 +32,7 @@ This Node.js web application contains both static and dynamic content, including
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/swapnilyavalkar/My-Node-JS-Web-Application.git
-   cd My-Node-JS-Web-Application/web-app
+   cd My-Node-JS-Web-Application
    ```
 
 2. **Install Dependencies**:
