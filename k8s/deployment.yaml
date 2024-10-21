@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-nodejs-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jenkins-nodejs-app
+  template:
+    metadata:
+      labels:
+        app: jenkins-nodejs-app
+    spec:
+      containers:
+        - name: nodejs-container
+          image: swapnilyavalkar/ci-cd-jenkins-nodejs-app:latest
+          ports:
+            - containerPort: 80
