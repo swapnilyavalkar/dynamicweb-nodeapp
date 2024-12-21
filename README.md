@@ -30,12 +30,14 @@ This Node.js web application contains both static and dynamic content, including
 ## Installation Steps
 
 1. **Clone the Repository**:
+
    ```bash
-   git clone https://github.com/swapnilyavalkar/My-Node-JS-Web-Application.git
-   cd My-Node-JS-Web-Application
+   git clone https://github.com/swapnilyavalkar/dynamicweb-nodeapp.git
+   cd dynamicweb-nodeapp
    ```
 
 2. **Install Dependencies**:
+
    ```bash
    sudo apt update
    cd ~
@@ -46,6 +48,7 @@ This Node.js web application contains both static and dynamic content, including
    ```
 
 3. **Run the Application**:
+
    ```bash
    npm start
    ```
@@ -135,4 +138,5 @@ fetch('/api/data')
     })
     .catch(err => console.error('Error fetching dynamic content:', err));
 ```
+
 ---
