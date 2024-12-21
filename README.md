@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Node.js web application contains both static and dynamic content, including a sample API serving dynamic data.
+This Node.js web application contains both static and dynamic content, including a sample API serving dynamic data..
 
 ## Directory Structure
 
